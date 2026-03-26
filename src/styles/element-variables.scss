@@ -1,0 +1,31 @@
+/**
+ * MingXi Desktop - Element Plus SCSS 变量覆盖
+ *
+ * 通过 Vite 的 additionalData 注入到所有 SCSS 文件
+ * 主色：爱玛仕橙 (Hermès Orange) - #F37021
+ */
+
+// 覆盖 Element Plus 颜色变量
+$colors: (
+  'primary': (
+    'base': #F37021,
+    'light-3': #F5843F,
+    'light-5': #F8985C,
+    'light-7': #FBAD7A,
+    'light-8': #FDC198,
+    'light-9': #FED9B8,
+    'dark-2': #D45F13,
+  ),
+  'info': (
+    'base': #F37021,
+    'light-3': #F5843F,
+    'light-5': #F8985C,
+    'light-7': #FBAD7A,
+    'light-8': #FDC198,
+    'light-9': #FED9B8,
+    'dark-2': #D45F13,
+  ),
+) !default;
+
+// 主色
+$color-primary: #F37021 !default;

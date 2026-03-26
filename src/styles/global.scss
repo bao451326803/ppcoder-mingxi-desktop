@@ -1,0 +1,230 @@
+/**
+ * MingXi Desktop - Global Styles
+ *
+ * 全局样式，包括基础重置、工具类、动画等
+ */
+
+// ============================================
+// CSS Reset / 基础重置
+// ============================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--el-font-family);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--el-text-color-primary);
+  background-color: var(--el-bg-color-page);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--el-color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--el-color-primary-light-3);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+// ============================================
+// 滚动条样式
+// ============================================
+
+html {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(15, 23, 42, 0.15);
+    border-radius: 8px;
+
+    &:hover {
+      background: rgba(15, 23, 42, 0.25);
+    }
+  }
+}
+
+// ============================================
+// 选中文本样式
+// ============================================
+
+::selection {
+  background-color: var(--el-color-primary-light-8);
+  color: var(--el-color-primary);
+}
+
+// ============================================
+// 焦点样式
+// ============================================
+
+:focus-visible {
+  outline: 2px solid var(--el-color-primary);
+  outline-offset: 2px;
+}
+
+// ============================================
+// 工具类
+// ============================================
+
+// 文字截断
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Flex 布局
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+// 光标
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// ============================================
+// 动画
+// ============================================
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease;
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.2s ease;
+}
+
+// 尊重用户的减少动画偏好
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// ============================================
+// 应用程序布局
+// ============================================
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+// 主内容区域
+.main-content {
+  flex: 1;
+  padding: var(--mx-spacing-lg);
+  background-color: var(--el-bg-color-page);
+}
+
+// 页面容器
+.page-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--mx-spacing-lg);
+}
+
+// 卡片容器
+.card-container {
+  background-color: var(--el-bg-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}

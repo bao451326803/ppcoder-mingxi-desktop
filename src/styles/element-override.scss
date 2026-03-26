@@ -1,0 +1,762 @@
+/**
+ * MingXi Desktop - Element Plus Theme Override
+ *
+ * 覆盖 Element Plus 默认样式，实现企业级主题
+ * 使用纯 CSS 变量，避免 SCSS 编译问题
+ * 主色：爱玛仕橙 (Hermès Orange) - #F37021
+ */
+
+// ============================================
+// 全局样式覆盖
+// ============================================
+
+:root {
+  // 主色 - 爱玛仕橙，代表时尚、高端、品质
+  --el-color-primary: #F37021 !important;
+  --el-color-primary-light-3: #F5843F !important;
+  --el-color-primary-light-5: #F8985C !important;
+  --el-color-primary-light-7: #FBAD7A !important;
+  --el-color-primary-light-8: #FDC198 !important;
+  --el-color-primary-light-9: #FED9B8 !important;
+  --el-color-primary-dark-2: #D45F13 !important;
+
+  // 功能色 - info 使用爱玛仕橙系列
+  --el-color-success: #059669;
+  --el-color-warning: #D97706;
+  --el-color-danger: #DC2626;
+  --el-color-info: #F37021 !important;
+  --el-color-info-light-3: #F5843F !important;
+  --el-color-info-light-5: #F8985C !important;
+  --el-color-info-light-7: #FBAD7A !important;
+  --el-color-info-light-8: #FDC198 !important;
+  --el-color-info-light-9: #FED9B8 !important;
+  --el-color-info-dark-2: #D45F13 !important;
+
+  // 文字颜色
+  --el-text-color-primary: #1A1A1A;
+  --el-text-color-regular: #333333;
+  --el-text-color-secondary: #666666;
+  --el-text-color-placeholder: #999999;
+
+  // 边框颜色
+  --el-border-color: #E5E5E5;
+  --el-border-color-light: #F0F0F0;
+  --el-border-color-lighter: #F5F5F5;
+  --el-border-color-extra-light: #FAFAFA;
+  --el-border-color-dark: #D0D0D0;
+
+  // 填充颜色
+  --el-fill-color: #F5F5F5;
+  --el-fill-color-light: #FAFAFA;
+  --el-fill-color-lighter: #FFFFFF;
+  --el-fill-color-dark: #E5E5E5;
+
+  // 背景颜色
+  --el-bg-color: #FFFFFF;
+  --el-bg-color-page: #FAFAFA;
+  --el-bg-color-overlay: #FFFFFF;
+
+  // 字体
+  --el-font-family: 'Fira Sans', 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  // 圆角
+  --el-border-radius-base: 6px;
+  --el-border-radius-small: 4px;
+  --el-border-radius-round: 20px;
+
+  // 过渡
+  --el-transition-duration: 0.2s;
+  --el-transition-duration-fast: 0.15s;
+
+  // 自定义变量
+  --mx-font-mono: 'Fira Code', 'SF Mono', Monaco, Menlo, Consolas, monospace;
+  --mx-spacing-xs: 4px;
+  --mx-spacing-sm: 8px;
+  --mx-spacing-md: 12px;
+  --mx-spacing-lg: 16px;
+  --mx-spacing-xl: 20px;
+  --mx-spacing-xxl: 24px;
+}
+
+// ============================================
+// 按钮样式 - 爱玛仕橙统一风格
+// ============================================
+
+// 全局按钮变量覆盖
+.el-button {
+  --el-button-bg-color: #F37021;
+  --el-button-border-color: #F37021;
+  --el-button-text-color: #FFFFFF;
+  --el-button-hover-bg-color: #F5843F;
+  --el-button-hover-border-color: #F5843F;
+  --el-button-hover-text-color: #FFFFFF;
+  --el-button-active-bg-color: #D45F13;
+  --el-button-active-border-color: #D45F13;
+  --el-button-disabled-bg-color: #FBAD7A;
+  --el-button-disabled-border-color: #FBAD7A;
+  --el-button-disabled-text-color: #FFFFFF;
+
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus-visible {
+    outline: 2px solid var(--el-color-primary);
+    outline-offset: 2px;
+  }
+
+  // Primary 按钮 - 爱玛仕橙（高优先级）
+  &--primary {
+    background-color: #F37021 !important;
+    border-color: #F37021 !important;
+    color: #FFFFFF !important;
+
+    &:hover,
+    &:focus {
+      background-color: #F5843F !important;
+      border-color: #F5843F !important;
+      color: #FFFFFF !important;
+    }
+
+    &:active {
+      background-color: #D45F13 !important;
+      border-color: #D45F13 !important;
+      color: #FFFFFF !important;
+    }
+
+    &.is-disabled,
+    &.is-disabled:hover {
+      background-color: #FBAD7A !important;
+      border-color: #FBAD7A !important;
+    }
+
+    &.is-loading {
+      background-color: #F37021 !important;
+      border-color: #F37021 !important;
+    }
+  }
+
+  // Success 按钮
+  &--success {
+    background-color: var(--el-color-success);
+    border-color: var(--el-color-success);
+
+    &:hover,
+    &:focus {
+      background-color: #0D9668;
+      border-color: #0D9668;
+    }
+  }
+
+  // Warning 按钮
+  &--warning {
+    background-color: var(--el-color-warning);
+    border-color: var(--el-color-warning);
+
+    &:hover,
+    &:focus {
+      background-color: #B45309;
+      border-color: #B45309;
+    }
+  }
+
+  // Danger 按钮
+  &--danger {
+    background-color: var(--el-color-danger);
+    border-color: var(--el-color-danger);
+
+    &:hover,
+    &:focus {
+      background-color: #B91C1C;
+      border-color: #B91C1C;
+    }
+  }
+
+  // Info 按钮 - 爱玛仕橙
+  &--info {
+    background-color: var(--el-color-info);
+    border-color: var(--el-color-info);
+
+    &:hover,
+    &:focus {
+      background-color: var(--el-color-info-dark-2);
+      border-color: var(--el-color-info-dark-2);
+    }
+  }
+
+  // Default 按钮 - 悬停时使用爱玛仕橙边框
+  &--default {
+    &:hover,
+    &:focus {
+      color: var(--el-color-primary);
+      border-color: var(--el-color-primary);
+      background-color: var(--el-color-primary-light-9);
+    }
+  }
+
+  // Text 按钮 - 爱玛仕橙
+  &--text {
+    color: var(--el-color-primary);
+
+    &:hover,
+    &:focus {
+      color: var(--el-color-primary-light-3);
+    }
+  }
+
+  &.is-disabled,
+  &.is-disabled:hover {
+    cursor: not-allowed;
+  }
+}
+
+// ============================================
+// 链接样式 - 爱玛仕橙
+// ============================================
+
+.el-link {
+  --el-link-text-color: var(--el-color-primary);
+  --el-link-hover-text-color: var(--el-color-primary-light-3);
+
+  &--primary {
+    color: var(--el-color-primary);
+
+    &:hover {
+      color: var(--el-color-primary-light-3);
+    }
+  }
+
+  &--default {
+    &:hover {
+      color: var(--el-color-primary);
+    }
+  }
+}
+
+// ============================================
+// 菜单样式 - 爱玛仕橙选中状态
+// ============================================
+
+.el-menu {
+  border-right: none;
+
+  &-item {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background-color: var(--el-color-primary-light-9);
+    }
+
+    &.is-active {
+      font-weight: 600;
+      color: var(--el-color-primary);
+      background-color: var(--el-color-primary-light-9);
+      border-right: 3px solid var(--el-color-primary);
+
+      .el-icon {
+        color: var(--el-color-primary);
+      }
+    }
+  }
+
+  &-sub-menu {
+    &__title {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        background-color: var(--el-color-primary-light-9);
+      }
+    }
+
+    &.is-active {
+      > .el-sub-menu__title {
+        color: var(--el-color-primary);
+      }
+    }
+  }
+}
+
+// ============================================
+// 标签页样式 - 爱玛仕橙
+// ============================================
+
+.el-tabs {
+  &__item {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      color: var(--el-color-primary);
+    }
+
+    &.is-active {
+      font-weight: 600;
+      color: var(--el-color-primary);
+    }
+  }
+
+  &__active-bar {
+    background-color: var(--el-color-primary);
+  }
+}
+
+// ============================================
+// 标签样式 - 爱玛仕橙
+// ============================================
+
+.el-tag {
+  border-radius: var(--el-border-radius-small);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Primary 标签 - 爱马仕橙背景，白色文字
+  &.el-tag--primary {
+    --el-tag-bg-color: #F37021;
+    --el-tag-border-color: #F37021;
+    --el-tag-text-color: #FFFFFF;
+    color: #FFFFFF !important;
+
+    &.el-tag--light {
+      --el-tag-bg-color: var(--el-color-primary-light-9);
+      --el-tag-border-color: var(--el-color-primary-light-8);
+      --el-tag-text-color: var(--el-color-primary);
+      color: var(--el-color-primary) !important;
+    }
+  }
+
+  // 确保所有深色背景tag的文字都是白色
+  &--dark,
+  &.is-hit {
+    .el-tag__content {
+      color: #FFFFFF;
+    }
+  }
+}
+
+// ============================================
+// 输入框样式
+// ============================================
+
+.el-input {
+  --el-input-border-radius: 6px;
+
+  &__wrapper {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      box-shadow: 0 0 0 1px var(--el-border-color-dark) inset;
+    }
+
+    &.is-focus {
+      box-shadow: 0 0 0 1px var(--el-color-primary) inset;
+    }
+  }
+
+  &.is-disabled {
+    .el-input__wrapper {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.el-textarea {
+  &__inner {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      border-color: var(--el-border-color-dark);
+    }
+
+    &:focus {
+      border-color: var(--el-color-primary);
+      box-shadow: 0 0 0 1px var(--el-color-primary) inset;
+    }
+  }
+}
+
+// ============================================
+// 表格样式
+// ============================================
+
+.el-table {
+  --el-table-border-color: #E5E5E5;
+  --el-table-header-bg-color: #FAFAFA;
+
+  border-radius: 8px;
+  overflow: hidden;
+
+  th.el-table__cell {
+    font-weight: 600;
+    color: var(--el-text-color-primary);
+    background-color: var(--el-table-header-bg-color);
+  }
+
+  td.el-table__cell {
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .el-table__row {
+    &:hover {
+      td.el-table__cell {
+        background-color: var(--el-color-primary-light-9);
+      }
+    }
+  }
+}
+
+// ============================================
+// 卡片样式
+// ============================================
+
+.el-card {
+  border-radius: 8px;
+  border-color: var(--el-border-color);
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  &__header {
+    font-weight: 600;
+    border-bottom-color: var(--el-border-color);
+  }
+}
+
+// ============================================
+// 对话框样式
+// ============================================
+
+.el-dialog {
+  border-radius: 12px;
+  overflow: hidden;
+
+  &__header {
+    font-weight: 600;
+    border-bottom: 1px solid var(--el-border-color);
+    padding: 16px 20px;
+    margin-right: 0;
+  }
+
+  &__body {
+    padding: 20px;
+  }
+
+  &__footer {
+    border-top: 1px solid var(--el-border-color);
+    padding: 12px 20px;
+  }
+}
+
+// ============================================
+// 抽屉样式
+// ============================================
+
+.el-drawer {
+  &__header {
+    font-weight: 600;
+    border-bottom: 1px solid var(--el-border-color);
+    padding: 16px 20px;
+    margin-bottom: 0;
+  }
+
+  &__body {
+    padding: 20px;
+  }
+}
+
+// ============================================
+// 分页样式 - 爱玛仕橙
+// ============================================
+
+.el-pagination {
+  &.is-background {
+    .btn-prev,
+    .btn-next {
+      &:hover {
+        color: var(--el-color-primary);
+      }
+    }
+
+    .el-pager {
+      li {
+        &:hover {
+          color: var(--el-color-primary);
+        }
+
+        &.is-active {
+          background-color: var(--el-color-primary);
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+
+  button {
+    &:hover {
+      color: var(--el-color-primary);
+    }
+  }
+}
+
+// ============================================
+// 开关样式 - 爱玛仕橙
+// ============================================
+
+.el-switch {
+  &.is-checked {
+    .el-switch__core {
+      background-color: var(--el-color-primary);
+      border-color: var(--el-color-primary);
+    }
+  }
+}
+
+// ============================================
+// 复选框样式 - 爱玛仕橙
+// ============================================
+
+.el-checkbox {
+  &__input {
+    &.is-checked {
+      .el-checkbox__inner {
+        background-color: var(--el-color-primary);
+        border-color: var(--el-color-primary);
+      }
+    }
+
+    &.is-indeterminate {
+      .el-checkbox__inner {
+        background-color: var(--el-color-primary);
+        border-color: var(--el-color-primary);
+      }
+    }
+  }
+
+  &__label {
+    cursor: pointer;
+  }
+
+  &:hover {
+    .el-checkbox__inner {
+      border-color: var(--el-color-primary);
+    }
+  }
+}
+
+// ============================================
+// 单选框样式 - 爱玛仕橙
+// ============================================
+
+.el-radio {
+  &__input {
+    &.is-checked {
+      .el-radio__inner {
+        background-color: var(--el-color-primary);
+        border-color: var(--el-color-primary);
+      }
+    }
+  }
+
+  &:hover {
+    .el-radio__inner {
+      border-color: var(--el-color-primary);
+    }
+  }
+}
+
+// ============================================
+// 加载样式 - 爱玛仕橙
+// ============================================
+
+.el-loading-mask {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.el-loading-spinner {
+  .circular {
+    .path {
+      stroke: var(--el-color-primary);
+    }
+  }
+}
+
+// ============================================
+// 描述列表样式
+// ============================================
+
+.el-descriptions {
+  &__label {
+    font-weight: 500;
+    color: var(--el-text-color-secondary);
+  }
+
+  &__content {
+    color: var(--el-text-color-primary);
+  }
+}
+
+// ============================================
+// 下拉菜单样式 - 爱玛仕橙
+// ============================================
+
+.el-dropdown-menu__item {
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--el-color-primary-light-9);
+    color: var(--el-color-primary);
+  }
+}
+
+// ============================================
+// 面包屑样式 - 爱玛仕橙
+// ============================================
+
+.el-breadcrumb__inner {
+  a {
+    &:hover {
+      color: var(--el-color-primary);
+    }
+  }
+}
+
+.el-breadcrumb__item {
+  &:last-child {
+    .el-breadcrumb__inner {
+      color: var(--el-color-primary);
+    }
+  }
+}
+
+// ============================================
+// 进度条样式 - 爱玛仕橙
+// ============================================
+
+.el-progress-bar__inner {
+  background-color: var(--el-color-primary);
+}
+
+// ============================================
+// 消息提示样式 - 爱玛仕橙统一风格
+// ============================================
+
+.el-message {
+  // 成功消息 - 爱马仕橙风格
+  &--success {
+    --el-message-bg-color: #FFF4E6;
+    --el-message-border-color: #FDC198;
+
+    .el-message__content {
+      color: #D45F13;
+    }
+
+    .el-message__icon {
+      color: #F37021 !important;
+    }
+  }
+
+  // 警告消息
+  &--warning {
+    --el-message-bg-color: #FEF3C7;
+    --el-message-border-color: #FDE68A;
+
+    .el-message__icon {
+      color: #D97706 !important;
+    }
+  }
+
+  // 错误消息
+  &--error {
+    --el-message-bg-color: #FEE2E2;
+    --el-message-border-color: #FECACA;
+
+    .el-message__icon {
+      color: #DC2626 !important;
+    }
+  }
+
+  // 信息消息 - 爱马仕橙
+  &--info {
+    --el-message-bg-color: #FFF4E6;
+    --el-message-border-color: #FDC198;
+
+    .el-message__content {
+      color: #D45F13;
+    }
+
+    .el-message__icon {
+      color: #F37021 !important;
+    }
+  }
+}
+
+// ============================================
+// 步骤条样式 - 爱玛仕橙
+// ============================================
+
+.el-steps {
+  .el-step__head.is-finish {
+    color: var(--el-color-primary);
+    border-color: var(--el-color-primary);
+  }
+
+  .el-step__title.is-finish {
+    color: var(--el-color-primary);
+  }
+
+  .el-step__head.is-process {
+    color: var(--el-color-primary);
+    border-color: var(--el-color-primary);
+  }
+
+  .el-step__title.is-process {
+    color: var(--el-color-primary);
+  }
+}
+
+// ============================================
+// 时间线样式 - 爱玛仕橙
+// ============================================
+
+.el-timeline-item__node--primary {
+  background-color: var(--el-color-primary);
+}
+
+.el-timeline-item__tail {
+  border-left-color: var(--el-color-primary-light-8);
+}
+
+// ============================================
+// 徽章样式 - 爱玛仕橙
+// ============================================
+
+.el-badge__content {
+  background-color: var(--el-color-primary);
+}
+
+// ============================================
+// 头像样式 - 爱玛仕橙背景
+// ============================================
+
+.el-avatar {
+  --el-avatar-bg-color: var(--el-color-primary-light-8);
+  color: var(--el-color-primary);
+}
+
+// ============================================
+// 空状态样式
+// ============================================
+
+.el-empty__description {
+  color: var(--el-text-color-secondary);
+}
+
+// ============================================
+// 图片预览样式
+// ============================================
+
+.el-image-viewer__btn {
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--el-color-primary-light-9);
+  }
+}
