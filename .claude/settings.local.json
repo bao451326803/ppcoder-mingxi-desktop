@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python:*)",
-      "Bash(where python:*)",
-      "Bash(where python3:*)"
-    ]
-  }
-}
